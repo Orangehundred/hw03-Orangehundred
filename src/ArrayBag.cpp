@@ -63,6 +63,23 @@ bool ArrayBag<ItemType>::remove(const ItemType &anEntry)
 
 // TODO: Part 2c - Implement the overloaded remove method below
 
+template <typename ItemType>
+ItemType ArrayBag<ItemType>::remove()
+{
+    std::random_device rd;  // Will be used to obtain a seed for the random number engine
+    std::mt19937 gen{ rd() }; // Standard mersenne_twister_engine seeded with rd()
+    std::uniform_int_distribution<> distrib{ 0, maxItems};
+
+    int randomItem = distrib(gen);
+    bool canRemoveItem = !isEmpty() && (randomItem > -1);
+    if (canRemoveItem)
+    {
+        itemCount--;
+        items[randomItem] = items[itemCount];
+    } // end if
+
+    return items[randomItem];
+} // end remove
 
 template <typename ItemType>
 void ArrayBag<ItemType>::clear()
@@ -99,6 +116,10 @@ template <typename ItemType>
 void ArrayBag<ItemType>::addToVector(std::vector<ItemType> &item_vector, int index) const
 {
     // TODO: Part 1 - Implement me...
+
+   // if (index < itemCount) {
+     //   addToVector(item_vector, index + 1);
+    //}
 } // end addToVector
 
 template <typename ItemType>

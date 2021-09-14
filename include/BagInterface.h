@@ -62,7 +62,7 @@ public:
      * 
      * @return A randomly removed item from this bag.
      */
-
+    virtual ItemType remove() = 0;
 
     /**
      * @brief Removes all entries from this bag.

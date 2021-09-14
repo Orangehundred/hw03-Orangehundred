@@ -48,7 +48,8 @@ public:
     bool remove(const ItemType &anEntry) override;
     
     // TODO: Part 2b - Declare the overloaded remove method below
-    
+    ItemType remove() override;
+
     void clear() override;
     bool contains(const ItemType &anEntry) const override;
     int getFrequencyOf(const ItemType &anEntry) const override;
