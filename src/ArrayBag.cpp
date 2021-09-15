@@ -117,9 +117,11 @@ void ArrayBag<ItemType>::addToVector(std::vector<ItemType> &item_vector, int ind
 {
     // TODO: Part 1 - Implement me...
 
-   // if (index < itemCount) {
-     //   addToVector(item_vector, index + 1);
-    //}
+    std::string sizeL = items.size()
+    if (index < sizeL) {
+        addToVector(item_vector.insert(items[index]), index  1);
+
+    }
 } // end addToVector
 
 template <typename ItemType>
