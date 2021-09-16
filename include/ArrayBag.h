@@ -42,6 +42,8 @@ public:
 
     // TODO: Part 3a - Declare overloaded constructor below
 
+    ArrayBag(ItemType item_Array[], int arraySize);
+
     int getCurrentSize() const override;
     bool isEmpty() const override;
     bool add(const ItemType &newEntry) override;

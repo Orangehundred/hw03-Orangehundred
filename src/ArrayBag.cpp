@@ -21,6 +21,14 @@ ArrayBag<ItemType>::ArrayBag() : itemCount{0}, maxItems{DEFAULT_CAPACITY}
 
 // TODO: Part 3b - Implement overloaded constructor
 
+template <typename ItemType>
+ArrayBag<ItemType>::ArrayBag(ItemType item_Array[], int arraySize): itemCount{ arraySize }, maxItems{ DEFAULT_CAPACITY }
+{
+    for (int i = 0; i < itemCount; ++i)
+    {
+        items[i] = item_Array[i];
+    }
+} // end overloaded constructor
 
 template <typename ItemType>
 int ArrayBag<ItemType>::getCurrentSize() const
@@ -117,10 +125,15 @@ void ArrayBag<ItemType>::addToVector(std::vector<ItemType> &item_vector, int ind
 {
     // TODO: Part 1 - Implement me...
 
-    std::string sizeL = items.size()
-    if (index < sizeL) {
-        addToVector(item_vector.insert(items[index]), index  1);
-
+    if (index > getCurrentSize()) 
+    {
+        std::cout << "Items have all been added.";
+    }
+    else
+    {
+        item_vector.push_back(items[index]);
+        //std::cout << items[index]
+        addToVector(item_vector, index + 1);
     }
 } // end addToVector
 
