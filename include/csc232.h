@@ -16,9 +16,9 @@
 #define FINISHED TRUE
 
 // TODO: Toggle these as needed, making sure they're all TRUE when you make your final commit.
-#define FINISHED_PART_1 FALSE
-#define FINISHED_PART_2 FALSE
-#define FINISHED_PART_3 FALSE
+#define FINISHED_PART_1 TRUE
+#define FINISHED_PART_2 TRUE
+#define FINISHED_PART_3 TRUE
 
 #include <cassert>
 #include <climits>

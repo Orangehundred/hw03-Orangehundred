@@ -21,6 +21,14 @@ ArrayBag<ItemType>::ArrayBag() : itemCount{0}, maxItems{DEFAULT_CAPACITY}
 
 // TODO: Part 3b - Implement overloaded constructor
 
+template <typename ItemType>
+ArrayBag<ItemType>::ArrayBag(ItemType item_Array[], int arraySize): itemCount{ arraySize }, maxItems{ DEFAULT_CAPACITY }
+{
+    for (int i = 0; i < itemCount; ++i)
+    {
+        items[i] = item_Array[i];
+    }
+} // end overloaded constructor
 
 template <typename ItemType>
 int ArrayBag<ItemType>::getCurrentSize() const
@@ -63,6 +71,23 @@ bool ArrayBag<ItemType>::remove(const ItemType &anEntry)
 
 // TODO: Part 2c - Implement the overloaded remove method below
 
+template <typename ItemType>
+ItemType ArrayBag<ItemType>::remove()
+{
+    std::random_device rd;  // Will be used to obtain a seed for the random number engine
+    std::mt19937 gen{ rd() }; // Standard mersenne_twister_engine seeded with rd()
+    std::uniform_int_distribution<> distrib{ 0, maxItems};
+
+    int randomItem = distrib(gen);
+    bool canRemoveItem = !isEmpty() && (randomItem > -1);
+    if (canRemoveItem)
+    {
+        itemCount--;
+        items[randomItem] = items[itemCount];
+    } // end if
+
+    return items[randomItem];
+} // end remove
 
 template <typename ItemType>
 void ArrayBag<ItemType>::clear()
@@ -99,6 +124,17 @@ template <typename ItemType>
 void ArrayBag<ItemType>::addToVector(std::vector<ItemType> &item_vector, int index) const
 {
     // TODO: Part 1 - Implement me...
+
+    if (index > getCurrentSize()) 
+    {
+        std::cout << "Items have all been added.";
+    }
+    else
+    {
+        item_vector.push_back(items[index]);
+        //std::cout << items[index]
+        addToVector(item_vector, index + 1);
+    }
 } // end addToVector
 
 template <typename ItemType>

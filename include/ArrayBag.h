@@ -42,13 +42,16 @@ public:
 
     // TODO: Part 3a - Declare overloaded constructor below
 
+    ArrayBag(ItemType item_Array[], int arraySize);
+
     int getCurrentSize() const override;
     bool isEmpty() const override;
     bool add(const ItemType &newEntry) override;
     bool remove(const ItemType &anEntry) override;
     
     // TODO: Part 2b - Declare the overloaded remove method below
-    
+    ItemType remove() override;
+
     void clear() override;
     bool contains(const ItemType &anEntry) const override;
     int getFrequencyOf(const ItemType &anEntry) const override;
